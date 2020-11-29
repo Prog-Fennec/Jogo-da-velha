@@ -58,31 +58,58 @@ void Avaliacao() {
 
 }
 
+
+void Print_Matriz(){
+
+  for (int l = 0; l < 3; l++){
+    for (int c = 0; c < 3; c++){
+      printf("%d ", JOGO[l][c]);
+    }
+  printf("\n");
+}
+}
+
+
 int main() {
 
-      //Definir o tabuleiro como vazio
-      int JOGO[3][3];
-      for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-          JOGO[i][j] = 0;
-        }
-      }
-      
-      //Imprimir o tabuleiro
-      for(int linha = 0 ; linha < 3 ; linha++){
-          for(int coluna = 0 ; coluna < 3 ; coluna++){
-              if(JOGP[linha][coluna] == 0){
-                  printf("0");
-              }
-              else{
-                  if(JOGO[linha][coluna] == 1){
-                      printf("1");
-                  }
-                  else{
-                      printf("2");
-                  }
-              }
-          }
-          putchar('\n');
-      }
-}      
+  int L, C, FIM;
+  V[0] = 0; V[1] = 0;
+
+  
+  for (int l = 0; l < 3; l++){
+    for (int c = 0; c < 3; c++){
+      JOGO[l][c] = 0;
+    }
+  }
+
+  printf("Jogo da Velha!\n\n");
+
+  while (1){
+
+    printf("Primeiro jogador:\n");
+    scanf("%d %d", &L, &C);
+    JOGO[L-1][C-1] = 1;
+
+    Print_Matriz();
+
+    Avaliacao();
+    if (V[0] == 1){break;}
+
+    printf("Segundo jogador:\n");
+    scanf("%d %d", &L, &C);
+    JOGO[L-1][C-1] = 2;
+
+    Print_Matriz();
+
+
+    Avaliacao();
+    if (V[0] == 1){break;}
+
+
+  }
+  if (V[1] == 1){printf("O primeiro jogador ganhou!\n");}
+  if (V[1] == 2){printf("O Segundo jogador ganhou!\n");}
+  if (V[1] == 0){printf("Empate!\n");}
+
+    return 0;
+}
