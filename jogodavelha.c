@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int JOGO[3][3], V[2], G1 = 0, G2 = 0, G3 = 0;
 
@@ -60,6 +61,7 @@ void Avaliacao() {
 
 void Print_Matriz()
 {
+  system("cls");
   for (int l = 0; l < 3; l++)
   {
     for (int c = 0; c < 3; c++)
