@@ -36,7 +36,7 @@ void Avaliacao() {
     if (G1 == 3){V[0] = 1;V[1] = 1;}
     if (G2 == 3){V[0] = 1;V[1] = 2;}
     G1 = 0; G2 = 0;
-    // Verificação Diagonal inversa  
+    // Verificação Diagonal inversa
     for (int l = 0; l < 3; l++){
       for (int c = 0; c < 3; c++){
         if ((c + l) == 2){
@@ -47,8 +47,8 @@ void Avaliacao() {
     }
     if (G1 == 3){V[0] = 1;V[1] = 1;}
     if (G2 == 3){V[0] = 1;V[1] = 2;}
-    G1 = 0; G2 = 0; 
-    // Verificação Empate 
+    G1 = 0; G2 = 0;
+    // Verificação Empate
     for (int l = 0; l < 3; l++){
       for (int c = 0; c < 3; c++){
         if (JOGO[l][c] != 0){G3++;}
@@ -61,7 +61,7 @@ void Avaliacao() {
 
 void Print_Matriz()
 {
-  system("cls");
+  printf("Tabuleiro:\n");
   for (int l = 0; l < 3; l++)
   {
     for (int c = 0; c < 3; c++)
@@ -70,6 +70,7 @@ void Print_Matriz()
     }
     printf("\n");
   }
+  putchar('\n');
 }
 
 
@@ -78,7 +79,7 @@ int main() {
   int L, C, FIM, ERROR = 0;
   V[0] = 0; V[1] = 0;
 
-  
+
   for (int l = 0; l < 3; l++){
     for (int c = 0; c < 3; c++){
       JOGO[l][c] = 0;
@@ -92,17 +93,17 @@ int main() {
     printf("Primeiro jogador:\n");
     scanf("%d %d", &L, &C);
     if (JOGO[L-1][C-1] != 0)
-    { 
+    {
       ERROR = 1;
     }
     else
     {
       ERROR = 0;
     }
-    
+
     while (ERROR == 1)
     {
-      printf("Error\nEssa cordenada ja foi preenchida, escolha outra.\n");
+      printf("Posicao Invalida!\nTente novamente!\n");
       printf("Primeiro jogador:\n");
       scanf("%d %d", &L, &C);
       if (JOGO[L-1][C-1] != 0)
@@ -124,17 +125,17 @@ int main() {
     printf("Segundo jogador:\n");
     scanf("%d %d", &L, &C);
     if (JOGO[L-1][C-1] != 0)
-    { 
+    {
       ERROR = 1;
     }
     else
     {
       ERROR = 0;
     }
-    
+
     while (ERROR == 1)
     {
-      printf("Error\nEssa cordenada ja foi preenchida, escolha outra.\n");
+      printf("Posicao Invalida!\nTente novamente!\n");
       printf("Segundo jogador:\n");
       scanf("%d %d", &L, &C);
       if (JOGO[L-1][C-1] != 0){ ERROR = 1;}else{ERROR = 0;}
@@ -149,8 +150,8 @@ int main() {
 
 
   }
-  if (V[1] == 1) {printf("O primeiro jogador ganhou!\n");}
-  if (V[1] == 2) {printf("O Segundo jogador ganhou!\n");}
+  if (V[1] == 1) {printf("Parabens! Primeiro jogador ganhou!\n");}
+  if (V[1] == 2) {printf("Parabens! Segundo jogador ganhou!\n");}
   if (V[1] == 0) {printf("Empate!\n");}
 
     return 0;
