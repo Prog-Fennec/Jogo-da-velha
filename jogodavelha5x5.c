@@ -61,6 +61,7 @@ void Avaliacao() {
 
 void Print_Matriz()
 {
+  printf("Tabuleiro:\n");
   for (int l = 0; l < 5; l++)
   {
     for (int c = 0; c < 5; c++)
@@ -91,7 +92,6 @@ int main() {
 
     printf("Primeiro jogador:\n");
     scanf("%d %d", &L, &C);
-    putchar('\n');
     if (JOGO[L-1][C-1] != 0)
     {
       ERROR = 1;
@@ -103,10 +103,9 @@ int main() {
 
     while (ERROR == 1)
     {
-      printf("Error\nEssa cordenada ja foi preenchida, escolha outra.\n");
+      printf("Posicao Invalida!\nTente novamente!\n");
       printf("Primeiro jogador:\n");
       scanf("%d %d", &L, &C);
-      putchar('\n');
       if (JOGO[L-1][C-1] != 0)
       {
         ERROR = 1;
@@ -125,7 +124,6 @@ int main() {
 
     printf("Segundo jogador:\n");
     scanf("%d %d", &L, &C);
-    putchar('\n');
     if (JOGO[L-1][C-1] != 0)
     {
       ERROR = 1;
@@ -137,10 +135,9 @@ int main() {
 
     while (ERROR == 1)
     {
-      printf("Error\nEssa cordenada ja foi preenchida, escolha outra.\n");
+      printf("Posicao Invalida!\nTente novamente!\n");
       printf("Segundo jogador:\n");
       scanf("%d %d", &L, &C);
-      putchar('\n');
       if (JOGO[L-1][C-1] != 0){ ERROR = 1;}else{ERROR = 0;}
     }
     JOGO[L-1][C-1] = 2;
@@ -153,8 +150,8 @@ int main() {
 
 
   }
-  if (V[1] == 1) {printf("O primeiro jogador ganhou!\n");}
-  if (V[1] == 2) {printf("O Segundo jogador ganhou!\n");}
+  if (V[1] == 1) {printf("Parabens! Primeiro jogador ganhou!\n");}
+  if (V[1] == 2) {printf("Parabens! Segundo jogador ganhou!\n");}
   if (V[1] == 0) {printf("Empate!\n");}
 
     return 0;
